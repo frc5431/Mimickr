@@ -48,7 +48,6 @@
         var lastLine = allTextLines[0];
         var drivePowerLeft = lastLine[3];
         var drivePowerRight = lastLine[4];
-        var tilt = lastLine[7];
         var output = [];
         for (var i = 1; i < allTextLines.length; i++) {
             var data = allTextLines[i].split(",");
@@ -61,14 +60,11 @@
             var deltaTilt = Math.abs(tarr[7] - lastLine[7]);
             drivePowerLeft = ((drivePowerLeft + tarr[3]) / 2.0);
             drivePowerRight = ((drivePowerRight + tarr[4]) / 2.0);
-            tilt = ((tilt + tarr[7]) / 2.0);
             if (deltaLeft >= neededDelta || deltaRight >= neededDelta || deltaTilt >= neededDelta) {
                 drivePowerLeft = tarr[3];
                 drivePowerRight = tarr[4];
-                tilt = tarr[7];
                 tarr[3] = drivePowerLeft;
                 tarr[4] = drivePowerRight;
-                tarr[7] = tilt;
                 output.push(tarr);
                 lastLine = tarr;
             }
