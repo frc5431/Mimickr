@@ -54,6 +54,9 @@
             for (var j = 0; j < data.length; j++) {
                 tarr.push(data[j]);
             }
+            if(tarr[7] < 75){
+                break;
+            }
             var deltaLeft = Math.abs(tarr[0] - lastLine[0]);
             var deltaRight = Math.abs(tarr[1] - lastLine[1]);
             drivePowerLeft = ((drivePowerLeft + tarr[3]) / 2.0);
