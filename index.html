@@ -42,6 +42,7 @@
 
     function processData(csv) {
         var neededDelta = 3.0;
+        console.log("Processing with delta " + neededDelta);
 
         var allTextLines = csv.split(/\r\n|\n/);
         var lastLine = allTextLines[0];
@@ -71,7 +72,12 @@
             }
         }
         
-        return output;
+        var outputString = "";
+        for(var i = 0; i < output.length; ++i){
+            outputString += output[i] + "\n";
+        }
+        
+        return outputString;
     }
 
     function errorHandler(evt) {
